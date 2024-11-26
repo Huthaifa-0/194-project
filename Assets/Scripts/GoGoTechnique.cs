@@ -31,7 +31,6 @@ public class GoGoTechnique : MonoBehaviour
     
     private Vector3 chestPosition;
     private Transform cameraTransform;
-    private GameObject realHandVisualizer;
 
     private void Start()
     {

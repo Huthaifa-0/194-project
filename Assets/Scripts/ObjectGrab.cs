@@ -13,7 +13,7 @@ public class ObjectGrab : MonoBehaviour
     void Awake()
     {
         // Updated to use XRI Default Input Actions
-        grabAction = actions.FindActionMap("XRI RightHand").FindAction("Select");
+        grabAction = actions.FindActionMap("XRI RightHand Interaction").FindAction("Activate");
         grabAction.performed += GrabObject;
         grabAction.canceled += ReleaseObject;
         Debug.Log("Grab action setup complete");
@@ -54,8 +54,12 @@ public class ObjectGrab : MonoBehaviour
         if (collidingObject != null) {
             Debug.Log($"Attempting to grab: {collidingObject.name}");
             objectInHand = collidingObject;
+            
             objectInHand.transform.SetParent(this.transform);
             objectInHand.GetComponent<Rigidbody>().isKinematic = true;
+
+            Debug.Log($"Object in hand: {objectInHand.name}");
+
             Debug.Log("Grab successful");
         } else {
             Debug.Log("No object to grab");
