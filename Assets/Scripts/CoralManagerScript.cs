@@ -19,11 +19,13 @@ public class Coralmanager : MonoBehaviour
     // Update is called once per frame
     void Update(){ //change when current health is updated once colliders are implemented
         currentHealth++;
-        alpha=1f - currentHealth/ maxHealth;
+        // How would we take the health score from another class . can we make it public static to access it 
+        alpha= 1f - currentHealth/ maxHealth;
         UpdateMaterialTransparency(alpha);
     }
 
-    private void UpdateMaterialTransparency(float alphaUpdated){ //method takes new alpha variable and applies it to all coral objects
+    private void UpdateMaterialTransparency(float alphaUpdated){
+        //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
         //updating every frame can make it laggy
         foreach (Transform child in transform){

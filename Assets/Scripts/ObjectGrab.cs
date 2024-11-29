@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ObjectGrab : MonoBehaviour
 {
+    public Transform controller;
     public GameObject collidingObject;
     public GameObject objectInHand;
     public InputActionAsset actions;
@@ -13,10 +14,19 @@ public class ObjectGrab : MonoBehaviour
     void Awake()
     {
         // Updated to use XRI Default Input Actions
+        if (controller.CompareTag("Right")){
         grabAction = actions.FindActionMap("XRI RightHand Interaction").FindAction("Activate");
         grabAction.performed += GrabObject;
         grabAction.canceled += ReleaseObject;
-        Debug.Log("Grab action setup complete");
+        Debug.Log("Right Controler Grab action setup complete");
+        }
+        else
+        {
+            grabAction = actions.FindActionMap("XRI LeftHand Interaction").FindAction("Activate");
+        grabAction.performed += GrabObject;
+        grabAction.canceled += ReleaseObject;
+        Debug.Log("Left Controler Grab action setup complete");
+        }
     }
 
     public void OnEnable()
@@ -37,7 +47,8 @@ public class ObjectGrab : MonoBehaviour
         if(other.gameObject.GetComponent<Rigidbody>()) {
             collidingObject = other.gameObject;
             Debug.Log($"Colliding object set to: {collidingObject.name}");
-        } else {
+        } 
+        else {
             Debug.Log("Object has no Rigidbody component");
         }
     }
