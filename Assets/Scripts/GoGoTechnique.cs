@@ -31,7 +31,6 @@ public class GoGoTechnique : MonoBehaviour
     
     private Vector3 chestPosition;
     private Transform cameraTransform;
-    private GameObject realHandVisualizer;
 
     private void Start()
     {
@@ -74,10 +73,19 @@ public class GoGoTechnique : MonoBehaviour
             // Linear mapping within threshold
             virtualRadius = realRadius;
         }
-        else
+        else if (realRadius > Threshold*1.5)
         {
             // Non-linear mapping beyond threshold
+
             virtualRadius = realRadius + k * Mathf.Pow(realRadius - Threshold, 2);
+            
+            // Ensure we don't exceed maximum distance
+            virtualRadius = Mathf.Min(virtualRadius, maxDistance);
+        }
+        else{
+            // Non-linear mapping beyond threshold
+
+            virtualRadius = realRadius + (k * 2) * Mathf.Pow(realRadius - Threshold, 2);
             
             // Ensure we don't exceed maximum distance
             virtualRadius = Mathf.Min(virtualRadius, maxDistance);
