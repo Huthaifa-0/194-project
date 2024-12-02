@@ -1,2 +1,2 @@
-# Comp 194 Project (replace with your team's project title)
+# Comp 194 Project (Ctrl + Alt + Rcycle)
  ---
