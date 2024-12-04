@@ -1,0 +1,23 @@
+﻿Emperor Angelfish
+
+
+The fish was made based on real underwater world references.
+This asset will help you make your underwater world more realistic.
+
+
+The fish has an animation loop 800 frames (duration 0-800, 30fps). 
+The asset has 3 textures: Albedo, Metallic, Normal
+
+
+The asset contains:
+3D model of Emperor Angelfish
+
+
+Number of textures: 186 (each fish has 3 textures)
+Texture dimensions: 1024x1024 px
+Polygon count of Emperor Angelfish: Tris:2488, Verts:1270
+Number of meshes/prefabs: 2
+Animation count: 1
+UV mapping: Yes
+LOD information (count, number of levels): no
+Types of materials and texture maps (e.g., PBR): Shader Standart. Albedo, Metallic, Normal map

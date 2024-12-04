@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: MobileWaterShader_EKV
   m_Shader: {fileID: 4800000, guid: cac645c54d47a224c9b34364a0f004bd, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - FOAM
   - INVERT
@@ -18,15 +20,15 @@ Material:
   - TEXTURES
   - WAVES
   m_InvalidKeywords:
-  - BLENDING
-  - HORIZON
-  - NOISE
+  - _ENABLEPROBERELFECTIONS_ON
+  - _ENABLEREALTIMEREFLECTIONS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -42,8 +44,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BASE_COLOR_MAP:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ca2018cce4b3041ca94fe509b701bce5, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 250, y: 250}
         m_Offset: {x: 0, y: 0}
     - _BumpMap2:
@@ -110,6 +116,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: d6840f77873948aeba2cdce3985ccf47, type: 3}
         m_Scale: {x: 30, y: 30}
         m_Offset: {x: 0, y: 0}
+    - _EMISSION_COLOR_MAP:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -138,6 +148,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _METALNESS_MAP:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainMainTex:
         m_Texture: {fileID: 2800000, guid: aa701e5be2dbcd24aad4fb9c3ca284da, type: 3}
         m_Scale: {x: 200, y: 500}
@@ -163,6 +177,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MotionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NORMAL_MAP:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -199,7 +217,7 @@ Material:
         m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 229e000900d549ddbdfbf1b657ec7097, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PlanetSurfaceColor:
@@ -217,6 +235,22 @@ Material:
     - _RefractionNormals:
         m_Texture: {fileID: 2800000, guid: dd148cda80391e24ab09fc059044a69a, type: 3}
         m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _SPECULAR_COLOR_MAP:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SPECULAR_IOR_MAP:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SPECULAR_ROUGHNESS_MAP:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShoreTex:
+        m_Texture: {fileID: 2800000, guid: 5fbcffe9c2077f04186883cb39275fcc, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
@@ -251,6 +285,18 @@ Material:
         m_Scale: {x: 800, y: 800}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -368,6 +414,7 @@ Material:
     - _LightScalar: 1
     - _LightWrapping: 0
     - _LowIntensity: 1
+    - _METALNESS: 0
     - _MainDetailFlow: 0
     - _MainDetailScale: 3
     - _MainTexRot: 132
@@ -417,6 +464,8 @@ Material:
     - _PlanetSurfaceTiling: 0
     - _PowerLambert: 1
     - _ProbeReflectionIntensity: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _R0: 0.1
     - _REFLECTION: 1
     - _RENDERING: 1
@@ -442,6 +491,8 @@ Material:
     - _SECTIONREFLECTION: 0
     - _SECTIONTEXTURES: 1
     - _SECTIONWAVES: 1
+    - _SPECULAR_IOR: 1.5
+    - _SPECULAR_ROUGHNESS: 0
     - _Saturation: 1
     - _SaturationRef: 0.5
     - _Shear: 1
@@ -480,21 +531,27 @@ Material:
     - _WaveStrength: 0
     - _ZWrite: 0
     - __dirty: 1
+    - _isInnerAlphaBlendOrColor: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0.5181034, g: 0.4426903, b: 0.6764706, a: 0}
     - _AlbedoColor: {r: 0.18280526, g: 0.3903058, b: 0.49056602, a: 1}
+    - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
     - _BlendColor: {r: 0.29411763, g: 0.29411763, b: 0.29411763, a: 1}
+    - _BumpDirection: {r: 1, g: 1, b: -1, a: 1}
+    - _BumpTiling: {r: 1, g: 1, b: -2, a: 3}
     - _Color: {r: 0.7688679, g: 0.937952, b: 1, a: 1}
     - _Color1: {r: 0, g: 0.7735849, b: 0.7177879, a: 1}
     - _Color2: {r: 0.6698113, g: 0.53079385, b: 0, a: 1}
     - _DeepWaterColor: {r: 0.5, g: 0.2712264, b: 0.2712264, a: 0}
     - _DepthColor: {r: 0, g: 0, b: 0, a: 0.5}
     - _DiffuseColor: {r: 0.32352936, g: 0.32352936, b: 0.32352936, a: 1}
+    - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
     - _EdgeColor: {r: 0.5588235, g: 0.5588235, b: 0.5588235, a: 1}
     - _EmisColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
     - _EmissionColor: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _Foam: {r: 0.1, g: 0.375, b: 0, a: 0}
     - _FoamColor: {r: 1.3560001, g: 1.6013625, b: 2, a: 1}
     - _FoamSoft: {r: 0.16, g: 0.3, b: 2, a: 0}
     - _FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -504,6 +561,7 @@ Material:
     - _HoloColor: {r: 1, g: 1, b: 1, a: 1}
     - _HoloDirection: {r: 0, g: 1, b: 0, a: 0}
     - _HorizonFogColor: {r: 1, g: 0, b: 0, a: 1}
+    - _InvFadeParemeter: {r: 0.2, g: 0.39, b: 0.5, a: 1}
     - _Level0Color: {r: 0.37, g: 0.78, b: 0.92, a: 1}
     - _Level1Color: {r: 0.65, g: 0.86, b: 0.63, a: 1}
     - _LowColor: {r: 1, g: 1, b: 1, a: 1}
@@ -516,6 +574,7 @@ Material:
     - _ReflectionColor: {r: 0.9150943, g: 0.6949537, b: 0.7267226, a: 0.5}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _Second_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
