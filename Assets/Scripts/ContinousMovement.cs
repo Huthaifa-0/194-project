@@ -1,46 +1,45 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-using Unity.XR.CoreUtils;
 
-
-public class ContinousMovement : MonoBehaviour
+public class ContinuousMovement : MonoBehaviour
 {
-    public XRNode inputSource;
+    public InputActionProperty moveInputSource;
+    public Rigidbody rb;
+    public LayerMask groundLayer;
+    public Transform directionSource;
+    public CapsuleCollider bodyCollider;
+    private Vector2 inputMoveAxis;
+    public float moveSpeed = 4f;
+    public float rotaitonSpeed = 0.5f;
 
-    private XROrigin rig;  // Changed from XROrigin to XROrigin3D
-
-    private Vector2 inputAxis;
-    public float speed = 1f;
-    private CharacterController character;
-    private Camera mainCamera; // Reference to the VR camera
-
-    void Start()
-    {
-        character = GetComponent<CharacterController>();
-        rig = GetComponent<XROrigin>();
-        // Get the camera reference
-        mainCamera = rig.Camera;
-    }
-
+    // Update is called once per frame
     void Update()
     {
-        InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
-        device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+        inputMoveAxis = moveInputSource.action.ReadValue<Vector2>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        // Use the camera's Y rotation instead of the rig's
-        Quaternion headYaw = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0);
-        Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
-        
-        // Normalize the direction to prevent faster diagonal movement
-        if (direction.magnitude > 0.1f)
-        {
-            direction = direction.normalized;
-        }
+        bool isGrounded = CheckIfGrounded();
 
-        character.Move(Time.fixedDeltaTime * speed * direction);
+        if(isGrounded)
+        {
+            Quaternion yaw = Quaternion.Euler(0, directionSource.eulerAngles.y, 0);
+            Vector3 direction = yaw * new Vector3(inputMoveAxis.x, 0, inputMoveAxis.y);
+            
+            rb.MovePosition(rb.position + direction * Time.fixedDeltaTime * moveSpeed);
+        }
+    }
+
+    public bool CheckIfGrounded()
+    {
+        Vector3 start = bodyCollider.transform.TransformPoint(bodyCollider.center);
+        float rayLength = bodyCollider.height / 2 - bodyCollider.radius + 0.05f;
+
+        bool hasHit = Physics.  SphereCast(start, bodyCollider.radius, Vector3.down, out RaycastHit hitInfo, rayLength, groundLayer);
+
+        return hasHit;
     }
 }

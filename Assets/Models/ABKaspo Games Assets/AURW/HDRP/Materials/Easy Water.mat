@@ -113,9 +113,9 @@ Material:
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 0
     - _CullModeForward: 0
-    - _Depth: 0.03
+    - _Depth: 0.02
     - _DepthOffsetEnable: 0
-    - _Depth_Strength: 4
+    - _Depth_Strength: 1
     - _DiffusionProfileHash: 0
     - _DistanceFade: 0
     - _DoubleSidedEnable: 1
