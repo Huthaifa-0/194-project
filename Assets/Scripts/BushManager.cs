@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coralmanager : MonoBehaviour
+public class BushManager : MonoBehaviour
 {
+    // Start is called before the first frame update
     private float maxHealth;
     private float currentHealth;
     private Color color;
@@ -29,15 +30,14 @@ public class Coralmanager : MonoBehaviour
         //optimize by updating trasparency only when health score changes
         //updating every frame can make it laggy
         foreach (Transform child in transform){
-            Renderer coralRenderer = child.GetComponent<Renderer>();
-            if (coralRenderer != null){
-                Material overlayMaterial = coralRenderer.materials[1];
+            Renderer bushRenderer = child.GetComponent<Renderer>();
+            if (bushRenderer != null){
+                Material overlayMaterial = bushRenderer.materials[1];
                 Color color = overlayMaterial.color;
                 color.a = alpha; // Update transparency
                 overlayMaterial.color = color;
-            }
-            
-                
+            }         
+
                 
         }
         
