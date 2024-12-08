@@ -7,6 +7,10 @@ TagManager:
   - Right
   - Left
   - Body
+  - PlasticTrash
+  - MetalTrash
+  - PlasticBin
+  - MetalBin
   layers:
   - Default
   - TransparentFX
