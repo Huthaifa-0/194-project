@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Coralmanager : MonoBehaviour
 {
-    public float maxHealth;
-    public float currentHealth;
-    public Color color;
-    public float alpha;
+    private float maxHealth;
+    private float currentHealth;
+    private Color color;
+    private float alpha;
     void Start()
     {
         currentHealth=0; //initial health score is 0
