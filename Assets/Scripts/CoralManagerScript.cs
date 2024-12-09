@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Coralmanager : MonoBehaviour
 {
-    public float maxHealth;
-    public float currentHealth;
-    public Color color;
-    public float alpha;
+    private float maxHealth;
+    private float currentHealth;
+    private Color color;
+    private float alpha;
     void Start()
     {
         currentHealth=0; //initial health score is 0
@@ -17,14 +17,15 @@ public class Coralmanager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){ //change when current health is updated once colliders are implemented
-        currentHealth++;
-        // How would we take the health score from another class . can we make it public static to access it 
-        alpha= 1f - currentHealth/ maxHealth;
-        UpdateMaterialTransparency(alpha);
+    void Update(){ 
+
     }
 
     private void UpdateMaterialTransparency(float alphaUpdated){
+        currentHealth++;
+        // How would we take the health score from another class . can we make it public static to access it 
+        alpha= 1f - currentHealth/ maxHealth;
+
         //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
         //updating every frame can make it laggy
