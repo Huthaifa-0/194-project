@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/SetupScene.unity
     guid: 2278d5f8297154f45a3c2776a13b087f
   - enabled: 1
-    path: Assets/Scenes/Elma.unity
+    path: Assets/Scenes/BeachScene.unity
     guid: e70a6392398be4771b88eb24e774d0ac
   - enabled: 1
-    path: Assets/Scenes/Elma 2nd scene.unity
+    path: Assets/Scenes/UnderwaterScene.unity
     guid: 89ea1b3813671476b895c8d3748419ec
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7746155df0bc2488eb99605bf4f718fd, type: 2}
