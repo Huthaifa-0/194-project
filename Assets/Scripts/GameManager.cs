@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public float alpha;
 
     void Update (){
-        currentHealth.OnValueChanged += MessegeClienRpc("Congrats you are half way through!");
+        //currentHealth.OnValueChanged += MessegeClienRpc("Congrats you are half way through!");
     }
     void initializecoralcolor()
     {
