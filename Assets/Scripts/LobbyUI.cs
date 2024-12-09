@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class LobbyUI : MonoBehaviour
 {
    [SerializeField]
-   private Button LobbyButton;
+   private Button PlayBeach;
 
+   [SerializeField]
+   private Button PlayWater;
 
    [SerializeField]
    private Button JoinButton;

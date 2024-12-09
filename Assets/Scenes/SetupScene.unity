@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 130501901}
   - component: {fileID: 130501899}
-  - component: {fileID: 130501900}
+  - component: {fileID: 130501902}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -161,18 +161,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &130501900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130501898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 655411ccbf8c54d0aacf77a8b19210df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &130501901
 Transform:
   m_ObjectHideFlags: 0
@@ -188,6 +176,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &130501902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130501898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580832f90715a4e068f789378a8b8379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409368541
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +857,125 @@ RectTransform:
   m_AnchoredPosition: {x: -41.11, y: 39.41}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &854137369
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 250282127739398092, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_Name
+      value: Canvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921891488673206185, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_Name
+      value: PlayBeach
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833312058884755593, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_text
+      value: PLAY BEACH
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564187624994867152, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_text
+      value: 'PLAY WATER
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564187624994867152, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774270385664037102, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_Name
+      value: PlayWater
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
 --- !u!1 &1042913728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,9 +1765,9 @@ MonoBehaviour:
   OnHostStartedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 130501900}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadMainScene
+      - m_Target: {fileID: 130501902}
+        m_TargetAssemblyTypeName: LoadNextScene, Assembly-CSharp
+        m_MethodName: LoadUnderwater
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1660,7 +1779,19 @@ MonoBehaviour:
         m_CallState: 2
   OnClientStartedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 130501902}
+        m_TargetAssemblyTypeName: LoadNextScene, Assembly-CSharp
+        m_MethodName: LoadBeach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1967550827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,3 +3116,4 @@ SceneRoots:
   - {fileID: 651362611}
   - {fileID: 742821739}
   - {fileID: 130501901}
+  - {fileID: 854137369}
