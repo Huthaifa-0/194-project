@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthText;
 
     private float currentScore = 0f;
-    private float currentHealth = 0f;
-    private float maxHealth = 100f; 
+     private TMP_Text uiLabel;
+    private NetworkVariable<float> currentHealth = new NetworkVariable<float>(0f);
+    private NetworkVariable<float> maxHealth = new NetworkVariable<float>(30f);
 
     public Color color;
     public float alpha;
+
+    void Update (){
+        //currentHealth.OnValueChanged += MessegeClienRpc("Congrats you are half way through!");
+    }
     void initializecoralcolor()
     {
     alpha = 1f;
@@ -35,12 +40,12 @@ public class GameManager : MonoBehaviour
     // Method to be assigned in Unity Events for updating health
     public void UpdateHealth()
     {
-        currentHealth++;
+        currentHealth.Value++;
         
         // Update health bar
         if (healthBar != null)
         {
-            healthBar.value = currentHealth / maxHealth;
+            healthBar.value = currentHealth.Value / maxHealth.Value;
         }
 
         // Update health text
@@ -50,9 +55,9 @@ public class GameManager : MonoBehaviour
         }
     }
     public void UpdateMaterialTransparency(){
-        currentHealth++;
+
         // How would we take the health score from another class . can we make it public static to access it 
-        alpha= 1f - currentHealth/ maxHealth;
+        alpha= 1f - currentHealth.Value / maxHealth.Value;
 
         //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
@@ -71,15 +76,12 @@ public class GameManager : MonoBehaviour
         }
         
     }
+
     [Rpc(SendTo.ClientsAndHost)]
-    public void sendMessage(string message){
+    void MessegeClienRpc(string message){
+        if(currentHealth.Value >= 50){
+        uiLabel.text = message;
+        } 
 
     }
-
-    public void HealthChecker(){
-        if (currentHealth >= 50 ){
-            SendMessage("Congrats You are half way through !! ");
-        }
-    }
-
 }
