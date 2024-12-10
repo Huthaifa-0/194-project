@@ -15,6 +15,9 @@ public class LobbyUI : MonoBehaviour
    [SerializeField]
    private Button JoinButton;
 
+   [SerializeField]
+   private Button LobbyButton;
+
 
    void Awake(){
        LobbyButton.onClick.AddListener( () => {

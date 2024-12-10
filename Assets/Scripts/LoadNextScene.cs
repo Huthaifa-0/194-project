@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextScene : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     public void LoadUnderwater() { //Host
         SceneManager.LoadScene("UnderwaterScene");
