@@ -877,6 +877,22 @@ PrefabInstance:
       propertyPath: m_text
       value: PLAY BEACH
       objectReference: {fileID: 0}
+    - target: {fileID: 5131747070639357102, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 130501902}
+    - target: {fileID: 5131747070639357102, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadUnderwater
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131747070639357102, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadNextScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131747070639357102, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6316963583641493769, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -970,6 +986,22 @@ PrefabInstance:
     - target: {fileID: 7774270385664037102, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
       propertyPath: m_Name
       value: PlayWater
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718746410840872292, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718746410840872292, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 130501902}
+    - target: {fileID: 8718746410840872292, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadBeach
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718746410840872292, guid: 5c0b928e63133418d96cc6db94cde0e1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadNextScene, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
