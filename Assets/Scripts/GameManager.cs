@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.Netcode;
 using JetBrains.Annotations;
+using System.Collections.Generic;
+
 
 public class GameManager : NetworkBehaviour
 {
@@ -18,10 +20,11 @@ public class GameManager : NetworkBehaviour
     private NetworkVariable<float> seaCurrentHealth = new NetworkVariable<float>(0f);
     private float maxHealth = 30f;
 
-    public Transform environmentObjects;
+    //public Transform environmentObjects;
 
     public Color color;
     public float alpha;
+    public List<GameObject> PlantObjectsList = new List<GameObject>();
 
     public override void OnNetworkSpawn()
     {
@@ -56,22 +59,16 @@ public class GameManager : NetworkBehaviour
         //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
         //updating every frame can make it laggy
-        foreach (Transform child in transform){
-            Renderer coralRenderer = child.GetComponent<Renderer>();
-            if (coralRenderer != null){
-                Material overlayMaterial = coralRenderer.materials[1];
-                Color color = overlayMaterial.color;
-                color.a = alpha; // Update transparency
-                overlayMaterial.color = color;
-            }
-            
-                
-                
-        }
-        
+        foreach (GameObject child in PlantObjectsList){
+            Renderer plantRenderer = child.GetComponent<Renderer>();
+            Material overlayMaterial = plantRenderer.materials[1];
+            Color color = overlayMaterial.color;
+            color.a = alpha; // Update transparency
+            overlayMaterial.color = color;
+        } 
     }
 
-    void OnBeachHealthChanged(float oldValue, float newValue,Transform objects){
+    void OnBeachHealthChanged(float oldValue, float newValue){ //change from transform to gameobject
         if(beachCurrentHealth.Value >= 50){
             prgressMessage.text = "Congrats you are half way through!";
         }
@@ -93,7 +90,7 @@ public class GameManager : NetworkBehaviour
         //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
         //updating every frame can make it laggy
-        foreach (Transform child in objects){
+        foreach (GameObject child in PlantObjectsList){
             Renderer coralRenderer = child.GetComponent<Renderer>();
             if (coralRenderer != null){
                 Material overlayMaterial = coralRenderer.materials[1];
