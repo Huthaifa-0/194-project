@@ -4,29 +4,40 @@ using TMPro;
 using Unity.Netcode;
 using JetBrains.Annotations;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private Slider healthBar;
-    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Slider beachHealthBar;
+    [SerializeField] private Slider seaHealthBar;
+    [SerializeField] private TextMeshProUGUI beachHealthText;
+    [SerializeField] private TextMeshProUGUI seaHealthText;
 
     private float currentScore = 0f;
-     private TMP_Text uiLabel;
-    private NetworkVariable<float> currentHealth = new NetworkVariable<float>(0f);
-    private NetworkVariable<float> maxHealth = new NetworkVariable<float>(30f);
+     private TMP_Text prgressMessage;
+    private NetworkVariable<float> beachCurrentHealth = new NetworkVariable<float>(0f);
+    private NetworkVariable<float> seaCurrentHealth = new NetworkVariable<float>(0f);
+    private float maxHealth = 30f;
+
+    public Transform environmentObjects;
 
     public Color color;
     public float alpha;
 
-    void Update (){
-        //currentHealth.OnValueChanged += MessegeClienRpc("Congrats you are half way through!");
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        //beachCurrentHealth.OnValueChanged += OnBeachHealthChanged;
+        seaCurrentHealth.OnValueChanged += OnSeaHealthChanged;
+
     }
+
+
     void initializecoralcolor()
     {
-    alpha = 1f;
+        alpha = 1f;
 
-    color.a=alpha; //initialize renderer as fully opaque
-    UpdateMaterialTransparency();
+        color.a=alpha; //initialize renderer as fully opaque
+        UpdateMaterialTransparency();
 
     }
 
@@ -37,27 +48,10 @@ public class GameManager : MonoBehaviour
         currentScore++; 
     }
 
-    // Method to be assigned in Unity Events for updating health
-    public void UpdateHealth()
-    {
-        currentHealth.Value++;
-        
-        // Update health bar
-        if (healthBar != null)
-        {
-            healthBar.value = currentHealth.Value / maxHealth.Value;
-        }
-
-        // Update health text
-        if (healthText != null)
-        {
-            healthText.text = $"Health: {currentHealth:F0}/{maxHealth:F0} %";
-        }
-    }
     public void UpdateMaterialTransparency(){
 
         // How would we take the health score from another class . can we make it public static to access it 
-        alpha= 1f - currentHealth.Value / maxHealth.Value;
+        alpha= 1f - beachCurrentHealth.Value / maxHealth;
 
         //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
@@ -77,11 +71,85 @@ public class GameManager : MonoBehaviour
         
     }
 
-    [Rpc(SendTo.ClientsAndHost)]
-    void MessegeClienRpc(string message){
-        if(currentHealth.Value >= 50){
-        uiLabel.text = message;
-        } 
+    void OnBeachHealthChanged(float oldValue, float newValue,Transform objects){
+        if(beachCurrentHealth.Value >= 50){
+            prgressMessage.text = "Congrats you are half way through!";
+        }
 
+         // Update health bar
+        if (beachHealthBar != null)
+        {
+            beachHealthBar.value = beachCurrentHealth.Value / maxHealth;
+        }
+
+        // Update health text
+        if (beachHealthText != null)
+        {
+            beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
+        } 
+         // How would we take the health score from another class . can we make it public static to access it 
+        alpha= 1f - beachCurrentHealth.Value / maxHealth;
+
+        //method takes new alpha variable and applies it to all coral objects
+        //optimize by updating trasparency only when health score changes
+        //updating every frame can make it laggy
+        foreach (Transform child in objects){
+            Renderer coralRenderer = child.GetComponent<Renderer>();
+            if (coralRenderer != null){
+                Material overlayMaterial = coralRenderer.materials[1];
+                Color color = overlayMaterial.color;
+                color.a = alpha; // Update transparency
+                overlayMaterial.color = color;
+            }
+            
+                
+                
+        }
+    }
+    void OnSeaHealthChanged(float oldValue, float newValue){
+        if(seaCurrentHealth.Value >= 50){
+            prgressMessage.text = "Congrats you are half way through!";
+        }
+
+         // Update health bar
+        if (beachHealthBar != null)
+        {
+            beachHealthBar.value = beachCurrentHealth.Value / maxHealth;
+        }
+
+        // Update health text
+        if (beachHealthText != null)
+        {
+            beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
+        } 
+         // How would we take the health score from another class . can we make it public static to access it 
+        alpha= 1f - beachCurrentHealth.Value / maxHealth;
+
+        //method takes new alpha variable and applies it to all coral objects
+        //optimize by updating trasparency only when health score changes
+        //updating every frame can make it laggy
+        foreach (Transform child in transform){
+            Renderer coralRenderer = child.GetComponent<Renderer>();
+            if (coralRenderer != null){
+                Material overlayMaterial = coralRenderer.materials[1];
+                Color color = overlayMaterial.color;
+                color.a = alpha; // Update transparency
+                overlayMaterial.color = color;
+            }
+            
+                
+                
+        }
+    }
+
+    [Rpc(SendTo.Server)]
+    void UpdateBeachHealthRpc(){
+        if (!IsServer) return;
+        beachCurrentHealth.Value++;
+    }
+    [Rpc(SendTo.Server)]
+    void UpdateSeaHealthRpc(){
+        if (!IsServer) return;
+        seaCurrentHealth.Value++;
     }
 }

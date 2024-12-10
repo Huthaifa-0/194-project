@@ -32,6 +32,9 @@ public class GoGoTechnique : MonoBehaviour
     private Vector3 chestPosition;
     private Transform cameraTransform;
 
+    private float realRadius = 0 ;
+    private Vector3 handToChest = new Vector3(0,0,0);
+
     private void Start()
     {
         if (virtualHandTransform == null || controllerTransform == null)
@@ -50,6 +53,9 @@ public class GoGoTechnique : MonoBehaviour
     {
         UpdateChestPosition();
         UpdateHandPosition();
+
+
+        
     }
 
     private void UpdateChestPosition()
@@ -63,8 +69,8 @@ public class GoGoTechnique : MonoBehaviour
     private void UpdateHandPosition()
     {
         // Calculate vector from chest to real hand
-        Vector3 handToChest = controllerTransform.position - chestPosition;
-        float realRadius = handToChest.magnitude;
+        handToChest = controllerTransform.position - chestPosition;
+        realRadius = handToChest.magnitude;
 
         // Calculate VirtualRadius
         float virtualRadius;
@@ -72,6 +78,7 @@ public class GoGoTechnique : MonoBehaviour
         {
             // Linear mapping within threshold
             virtualRadius = realRadius;
+            
         }
         else if (realRadius > Threshold*1.5)
         {
