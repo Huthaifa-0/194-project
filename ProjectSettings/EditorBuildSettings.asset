@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SetupScene.unity
     guid: 2278d5f8297154f45a3c2776a13b087f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BeachScene.unity
     guid: e70a6392398be4771b88eb24e774d0ac
   - enabled: 0
