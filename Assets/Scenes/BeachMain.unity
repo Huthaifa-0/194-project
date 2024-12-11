@@ -7612,8 +7612,16 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   alpha: 0
   PlantObjectsList:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 644338270}
+  - {fileID: 278883787}
+  - {fileID: 791502653}
+  - {fileID: 1834004420}
+  - {fileID: 1016155109}
+  - {fileID: 2090361529}
+  - {fileID: 1022347793}
+  - {fileID: 34235216}
+  - {fileID: 1739915184}
+  - {fileID: 1395810493}
 --- !u!4 &2118767800
 Transform:
   m_ObjectHideFlags: 0
