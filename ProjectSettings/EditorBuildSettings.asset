@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ARExample.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Huthaifa.unity
     guid: 7ca765aa357fd405aa484a0d6d73fff7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SetupScene.unity
     guid: 2278d5f8297154f45a3c2776a13b087f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BeachScene.unity
     guid: e70a6392398be4771b88eb24e774d0ac
   - enabled: 1
