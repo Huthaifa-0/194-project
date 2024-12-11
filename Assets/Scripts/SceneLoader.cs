@@ -9,8 +9,5 @@ public class SceneLoader : NetworkBehaviour
   
    public void LoadMainScene(){
        NetworkManager.Singleton.SceneManager.LoadScene(mainSceneName, LoadSceneMode.Single);
-       //this doesn't work for us
-       //we should 
-       // 
    }
 }

@@ -8,10 +8,10 @@ public class LoadNextScene : MonoBehaviour
     
     // Start is called before the first frame update
     public void LoadUnderwater() { //Host
-        SceneManager.LoadScene("UnderwaterScene");
+        SceneManager.LoadScene("WaterMain");
     }
 
     public void LoadBeach() { //Client
-        SceneManager.LoadScene("BeachScene");
+        SceneManager.LoadScene("BeachMain");
     }
 }
