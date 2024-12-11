@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/WaterMain.unity
     guid: 5bc84d9beb61147558d799dbad2d6ccc
+  - enabled: 1
+    path: Assets/Scenes/BeachMain.unity
+    guid: f139fb162b3184ba9af2a9cb021f9e8d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7746155df0bc2488eb99605bf4f718fd, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: d1bbcd1afe8454e72972e991ae9b1fd9, type: 2}
