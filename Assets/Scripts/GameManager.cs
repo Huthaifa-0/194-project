@@ -140,12 +140,12 @@ public class GameManager : NetworkBehaviour
     }
 
     [Rpc(SendTo.Server)]
-    void UpdateBeachHealthRpc(){
+    public void UpdateBeachHealthRpc(){
         if (!IsServer) return;
         beachCurrentHealth.Value++;
     }
     [Rpc(SendTo.Server)]
-    void UpdateSeaHealthRpc(){
+    public void UpdateSeaHealthRpc(){
         if (!IsServer) return;
         seaCurrentHealth.Value++;
     }
