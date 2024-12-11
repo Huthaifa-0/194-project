@@ -29,7 +29,7 @@ public class GameManager : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        //beachCurrentHealth.OnValueChanged += OnBeachHealthChanged;
+        beachCurrentHealth.OnValueChanged += OnBeachHealthChanged;
         seaCurrentHealth.OnValueChanged += OnSeaHealthChanged;
 
     }
