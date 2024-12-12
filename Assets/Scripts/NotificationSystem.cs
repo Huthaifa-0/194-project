@@ -5,8 +5,8 @@ using System.Collections;
 public class NotificationSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI notificationText;
-    [SerializeField] private float displayDuration = 3f;
-    [SerializeField] private Vector3 offset = new Vector3(0, -0.5f, 2f); // Offset from camera
+    [SerializeField] private float displayDuration = 5f;
+    [SerializeField] private Vector3 offset = new Vector3(-4f, -0.5f, 2f); // Offset from camera
     
     private Camera playerCamera;
     private bool isDisplaying = false;

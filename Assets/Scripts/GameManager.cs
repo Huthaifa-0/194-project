@@ -4,10 +4,14 @@ using TMPro;
 using Unity.Netcode;
 using JetBrains.Annotations;
 using System.Collections.Generic;
+using UnityEngine.Events;
+using System.Linq.Expressions;
+
 
 
 public class GameManager : NetworkBehaviour
 {
+    public UnityEvent notification = new UnityEvent();
     [Header("UI References")]
     [SerializeField] private Slider beachHealthBar;
     [SerializeField] private Slider seaHealthBar;
@@ -25,6 +29,28 @@ public class GameManager : NetworkBehaviour
     public Color color;
     public float alpha;
     public List<GameObject> PlantObjectsList = new List<GameObject>();
+     private NotificationSystem notificationSystem;
+     private AudioSource audioSource;
+     private AudioClip notificationSound ;
+
+    void Start()
+    {
+        // Get reference to notification system when script starts
+        notificationSystem = FindObjectOfType<NotificationSystem>();
+        audioSource = GetComponent<AudioSource>();
+
+        notification.Invoke();
+        PlayNotificationSound();
+
+
+    }
+
+
+    public void ProgressNotification()
+    {
+        // Show notification when event happens
+        notificationSystem.ShowNotification("Congrats you are half way through !");
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -70,7 +96,11 @@ public class GameManager : NetworkBehaviour
 
     void OnBeachHealthChanged(float oldValue, float newValue){ //change from transform to gameobject
         if(beachCurrentHealth.Value >= 50){
+            notification.Invoke();
+            PlayNotificationSound();
+
             prgressMessage.text = "Congrats you are half way through!";
+            
         }
 
          // Update health bar
@@ -137,6 +167,10 @@ public class GameManager : NetworkBehaviour
                 
                 
         }
+    }
+    public void PlayNotificationSound()
+    {
+        audioSource.PlayOneShot(notificationSound);
     }
 
     [Rpc(SendTo.Server)]
