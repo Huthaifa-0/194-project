@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using System.Linq.Expressions;
+using UnityEngine.PlayerLoop;
 
 
 
@@ -22,7 +23,7 @@ public class GameManager : NetworkBehaviour
      private TMP_Text prgressMessage;
     private NetworkVariable<float> beachCurrentHealth = new NetworkVariable<float>(0f);
     private NetworkVariable<float> seaCurrentHealth = new NetworkVariable<float>(0f);
-    private float maxHealth = 30f;
+    private float maxHealth = 20f;
 
     //public Transform environmentObjects;
 
@@ -31,7 +32,7 @@ public class GameManager : NetworkBehaviour
     public List<GameObject> PlantObjectsList = new List<GameObject>();
      private NotificationSystem notificationSystem;
      private AudioSource audioSource;
-     private AudioClip notificationSound ;
+    public AudioClip notificationSound ;
 
     void Start()
     {
@@ -95,12 +96,10 @@ public class GameManager : NetworkBehaviour
     }
 
     void OnBeachHealthChanged(float oldValue, float newValue){ //change from transform to gameobject
-        if(beachCurrentHealth.Value >= 50){
+
+        if(beachCurrentHealth.Value >= 10){
             notification.Invoke();
             PlayNotificationSound();
-
-            prgressMessage.text = "Congrats you are half way through!";
-            
         }
 
          // Update health bar
@@ -134,8 +133,8 @@ public class GameManager : NetworkBehaviour
         }
     }
     void OnSeaHealthChanged(float oldValue, float newValue){
-        if(seaCurrentHealth.Value >= 50){
-            prgressMessage.text = "Congrats you are half way through!";
+        if(seaCurrentHealth.Value >= 10){
+
         }
 
          // Update health bar
@@ -177,6 +176,7 @@ public class GameManager : NetworkBehaviour
     public void UpdateBeachHealthRpc(){
         if (!IsServer) return;
         beachCurrentHealth.Value++;
+
     }
     [Rpc(SendTo.Server)]
     public void UpdateSeaHealthRpc(){
