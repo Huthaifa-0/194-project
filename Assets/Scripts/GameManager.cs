@@ -18,8 +18,10 @@ public class GameManager : NetworkBehaviour
     [SerializeField] private Slider seaHealthBar;
     [SerializeField] private TextMeshProUGUI beachHealthText;
     [SerializeField] private TextMeshProUGUI seaHealthText;
+    public TextMeshProUGUI scoreText;
 
     private float currentScore = 0f;
+
      private TMP_Text prgressMessage;
     private NetworkVariable<float> beachCurrentHealth = new NetworkVariable<float>(0f);
     private NetworkVariable<float> seaCurrentHealth = new NetworkVariable<float>(0f);
@@ -76,6 +78,7 @@ public class GameManager : NetworkBehaviour
     public void UpdateScore()
     {
         currentScore++; 
+        scoreText.GetComponent<TMP_Text>().text = currentScore.ToString();
     }
 
     public void UpdateMaterialTransparency(){
@@ -167,20 +170,24 @@ public class GameManager : NetworkBehaviour
                 
         }
     }
+    //Method to play a sound 
     public void PlayNotificationSound()
     {
         audioSource.PlayOneShot(notificationSound);
     }
+    //Roc updatethe beach and sea health scores and update the value of the slider bar in the hand menu
 
     [Rpc(SendTo.Server)]
     public void UpdateBeachHealthRpc(){
         if (!IsServer) return;
         beachCurrentHealth.Value++;
+        beachHealthBar.value = beachCurrentHealth.Value;
 
     }
     [Rpc(SendTo.Server)]
     public void UpdateSeaHealthRpc(){
         if (!IsServer) return;
         seaCurrentHealth.Value++;
+        seaHealthBar.value = seaCurrentHealth.Value;
     }
 }
