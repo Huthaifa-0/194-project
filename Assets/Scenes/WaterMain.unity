@@ -10170,6 +10170,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7490558812896511047, guid: 40be9958c98e8e34a88b1a9bab34a14c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490558812896511047, guid: 40be9958c98e8e34a88b1a9bab34a14c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490558812896511047, guid: 40be9958c98e8e34a88b1a9bab34a14c, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8107830573365553295, guid: 40be9958c98e8e34a88b1a9bab34a14c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
