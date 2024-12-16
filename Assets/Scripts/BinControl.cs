@@ -15,6 +15,7 @@ public class BinControl : MonoBehaviour
         if(other.gameObject.GetComponent<Rigidbody>()) {
 
             onRecycle.Invoke();
+            
             Destroy(other.gameObject);
         } 
         else {

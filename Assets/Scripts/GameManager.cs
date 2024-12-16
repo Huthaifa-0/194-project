@@ -188,6 +188,6 @@ public class GameManager : NetworkBehaviour
     public void UpdateSeaHealthRpc(){
         if (!IsServer) return;
         seaCurrentHealth.Value++;
-        seaHealthBar.value = seaCurrentHealth.Value;
+        seaHealthBar.value = seaCurrentHealth.Value + 10;
     }
 }
