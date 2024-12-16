@@ -12,20 +12,14 @@ public class LobbyUI : MonoBehaviour
    [SerializeField]
    private Button PlayWater;
 
-   [SerializeField]
-   private Button JoinButton;
-
-   [SerializeField]
-   private Button LobbyButton;
-
 
    void Awake(){
-       LobbyButton.onClick.AddListener( () => {
+       PlayWater.onClick.AddListener( () => {
            MultiPlayer.Instance.CreateLobby("DefaultLobby", false);
        });
 
 
-       JoinButton.onClick.AddListener( ()=> {
+       PlayBeach.onClick.AddListener( ()=> {
            MultiPlayer.Instance.QuickJoin();
        });
    }

@@ -103,8 +103,9 @@ public class GameManager : NetworkBehaviour
             notification.Invoke();
             PlayNotificationSound();
         }
-        beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.ToString();
-        seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString();
+        beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.Value.ToString();
+        seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString(); //why is seaHealth here on beach health
+
 
 
          // Update health bar
@@ -158,7 +159,7 @@ public class GameManager : NetworkBehaviour
         //     beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
         // } 
          // How would we take the health score from another class . can we make it public static to access it 
-        alpha= 1f - beachCurrentHealth.Value / maxHealth;
+        alpha= 1f - beachCurrentHealth.Value / maxHealth; //should this be relying on seaHealth?
 
         //method takes new alpha variable and applies it to all coral objects
         //optimize by updating trasparency only when health score changes
