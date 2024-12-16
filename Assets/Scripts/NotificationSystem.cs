@@ -14,7 +14,7 @@ public class NotificationSystem : MonoBehaviour
     void Start()
     {
         playerCamera = Camera.main;
-        notificationText.gameObject.SetActive(false);
+        //notificationText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -29,6 +29,7 @@ public class NotificationSystem : MonoBehaviour
             // Make text face the camera
             notificationText.transform.position = targetPosition;
             notificationText.transform.rotation = playerCamera.transform.rotation;
+            
         }
     }
 
