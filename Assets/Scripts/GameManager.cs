@@ -42,8 +42,8 @@ public class GameManager : NetworkBehaviour
         notificationSystem = FindObjectOfType<NotificationSystem>();
         audioSource = GetComponent<AudioSource>();
 
-        notification.Invoke();
-        PlayNotificationSound();
+        // notification.Invoke();
+        // PlayNotificationSound();
 
 
     }
@@ -67,7 +67,6 @@ public class GameManager : NetworkBehaviour
     void initializecoralcolor()
     {
         alpha = 1f;
-
         color.a=alpha; //initialize renderer as fully opaque
         UpdateMaterialTransparency();
 
@@ -104,6 +103,9 @@ public class GameManager : NetworkBehaviour
             notification.Invoke();
             PlayNotificationSound();
         }
+        beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.ToString();
+        seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString();
+
 
          // Update health bar
         if (beachHealthBar != null)
@@ -137,20 +139,24 @@ public class GameManager : NetworkBehaviour
     }
     void OnSeaHealthChanged(float oldValue, float newValue){
         if(seaCurrentHealth.Value >= 10){
-
+            notification.Invoke();
+            PlayNotificationSound();
         }
+        beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.ToString();
+        seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString();
+
 
          // Update health bar
-        if (beachHealthBar != null)
-        {
-            beachHealthBar.value = beachCurrentHealth.Value / maxHealth;
-        }
+        // if (beachHealthBar != null)
+        // {
+        //     beachHealthBar.value = beachCurrentHealth.Value / maxHealth;
+        // }
 
-        // Update health text
-        if (beachHealthText != null)
-        {
-            beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
-        } 
+        // // Update health text
+        // if (beachHealthText != null)
+        // {
+        //     beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
+        // } 
          // How would we take the health score from another class . can we make it public static to access it 
         alpha= 1f - beachCurrentHealth.Value / maxHealth;
 
@@ -181,13 +187,21 @@ public class GameManager : NetworkBehaviour
     public void UpdateBeachHealthRpc(){
         if (!IsServer) return;
         beachCurrentHealth.Value++;
-        beachHealthBar.value = beachCurrentHealth.Value;
+        
+        
+        // beachHealthBar.value = beachCurrentHealth.Value;
+        // seaHealthBar.value = seaCurrentHealth.Value ;
+
 
     }
     [Rpc(SendTo.Server)]
     public void UpdateSeaHealthRpc(){
         if (!IsServer) return;
         seaCurrentHealth.Value++;
-        seaHealthBar.value = seaCurrentHealth.Value + 10;
+        
+
+        // seaHealthBar.value = seaCurrentHealth.Value ;
+        // beachHealthBar.value = beachCurrentHealth.Value;
+
     }
 }
