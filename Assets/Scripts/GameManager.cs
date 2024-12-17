@@ -180,8 +180,9 @@ public class GameManager : NetworkBehaviour
 
     [Rpc(SendTo.Server)]
     public void UpdateBeachHealthRpc(){
-        if (!IsServer) return;
+        //if (!IsServer) return;
         beachCurrentHealth.Value++;
+        Debug.Log(beachCurrentHealth);
         
         
         // beachHealthBar.value = beachCurrentHealth.Value;
@@ -191,9 +192,10 @@ public class GameManager : NetworkBehaviour
     }
     [Rpc(SendTo.Server)]
     public void UpdateSeaHealthRpc(){
-        if (!IsServer) return;
+        //if (!IsServer) return;
         seaCurrentHealth.Value++;
-        
+        Debug.Log(seaCurrentHealth);
+
 
         // seaHealthBar.value = seaCurrentHealth.Value ;
         // beachHealthBar.value = beachCurrentHealth.Value;
