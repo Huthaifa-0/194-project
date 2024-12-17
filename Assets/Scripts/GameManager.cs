@@ -104,14 +104,14 @@ public class GameManager : NetworkBehaviour
             PlayNotificationSound();
         }
         beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.Value.ToString();
-        seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString(); //why is seaHealth here on beach health
+        //seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString(); //why is seaHealth here on beach health
 
 
 
          // Update health bar
         if (beachHealthBar != null)
         {
-            beachHealthBar.value = beachCurrentHealth.Value / maxHealth;
+            beachHealthBar.value = beachCurrentHealth.Value;
         }
 
         // Update health text
@@ -143,8 +143,8 @@ public class GameManager : NetworkBehaviour
             notification.Invoke();
             PlayNotificationSound();
         }
-        beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.ToString();
-        seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString();
+        seaHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.Value.ToString();
+        //beachHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString();
 
 
          // Update health bar
