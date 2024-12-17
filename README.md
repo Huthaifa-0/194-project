@@ -1,4 +1,4 @@
-# Comp 194 Project (Ctrl + Alt + Rcycle)
+# Comp 194 Project (Ctrl + Alt + Recycle)
  Ctrl + Alt + Recycle: a sustainability VR game
 Team members: Huthaifa Mohammad, Irene Gallini, Elma Mostic, Elyse Quigley 
 
