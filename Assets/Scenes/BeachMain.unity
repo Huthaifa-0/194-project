@@ -547,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &517016930
 Transform:
   m_ObjectHideFlags: 0
@@ -1652,10 +1652,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 258115254495373176, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316549969261402829, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3925814016461514156, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584186562008731688, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854123232945726998, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_Name
+      value: UnderwaterHealthTitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854123232945726998, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211974778138369012, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5977261661002525340, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
@@ -1702,8 +1722,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9027803024753818169, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_Name
+      value: BeachHealthTitle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5476514459403628526, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+    - {fileID: 1316549969261402829, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
@@ -5217,6 +5243,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5476514459403628526, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5977261661002525340, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
       propertyPath: m_Name
       value: HandMenuParent
@@ -5266,7 +5296,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1316549969261402829, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
+    - {fileID: 5476514459403628526, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d0ff42d9257e641b837a792d68ea3c, type: 3}
