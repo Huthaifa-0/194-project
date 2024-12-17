@@ -16,13 +16,11 @@ public class GameManager : NetworkBehaviour
     [Header("UI References")]
     [SerializeField] private Slider beachHealthBar;
     [SerializeField] private Slider seaHealthBar;
-    [SerializeField] private TextMeshProUGUI beachHealthText;
-    [SerializeField] private TextMeshProUGUI seaHealthText;
     public TextMeshProUGUI scoreText;
 
     private float currentScore = 0f;
 
-     private TMP_Text prgressMessage;
+    private TMP_Text progressMessage;
     private NetworkVariable<float> beachCurrentHealth = new NetworkVariable<float>(0f);
     private NetworkVariable<float> seaCurrentHealth = new NetworkVariable<float>(0f);
     private float maxHealth = 20f;
@@ -32,8 +30,8 @@ public class GameManager : NetworkBehaviour
     public Color color;
     public float alpha;
     public List<GameObject> PlantObjectsList = new List<GameObject>();
-     private NotificationSystem notificationSystem;
-     private AudioSource audioSource;
+    private NotificationSystem notificationSystem;
+    private AudioSource audioSource;
     public AudioClip notificationSound ;
 
     void Start()
@@ -52,7 +50,7 @@ public class GameManager : NetworkBehaviour
     public void ProgressNotification()
     {
         // Show notification when event happens
-        notificationSystem.ShowNotification("Congrats you are half way through !");
+        notificationSystem.ShowNotification("Congrats you are half way through!");
     }
 
     public override void OnNetworkSpawn()
@@ -99,12 +97,10 @@ public class GameManager : NetworkBehaviour
 
     void OnBeachHealthChanged(float oldValue, float newValue){ //change from transform to gameobject
 
-        if(beachCurrentHealth.Value >= 10){
+        if(currentScore >= 10){
             notification.Invoke();
             PlayNotificationSound();
         }
-        beachHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.Value.ToString();
-        //seaHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString(); //why is seaHealth here on beach health
 
 
 
@@ -115,10 +111,10 @@ public class GameManager : NetworkBehaviour
         }
 
         // Update health text
-        if (beachHealthText != null)
-        {
-            beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
-        } 
+        // if (beachHealthText != null)
+        // {
+        //     beachHealthText.text = $"Health: {beachCurrentHealth:F0}/{maxHealth:F0} %";
+        // } 
          // How would we take the health score from another class . can we make it public static to access it 
         alpha= 1f - beachCurrentHealth.Value / maxHealth;
 
@@ -139,12 +135,10 @@ public class GameManager : NetworkBehaviour
         }
     }
     void OnSeaHealthChanged(float oldValue, float newValue){
-        if(seaCurrentHealth.Value >= 10){
+        if(currentScore >= 10){
             notification.Invoke();
             PlayNotificationSound();
         }
-        seaHealthText.GetComponent<TMP_Text>().text = beachCurrentHealth.Value.ToString();
-        //beachHealthText.GetComponent<TMP_Text>().text = seaHealthText.ToString();
 
 
          // Update health bar
