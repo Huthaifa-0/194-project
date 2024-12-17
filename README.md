@@ -25,24 +25,18 @@ Once all the trash in the scenes has been collected, the game will end.
 
 How this was achieved: 
 Scene structure:
-    The players start in the SetUpScene, then they can choose to move to BeachMain or WaterMain
-    
-    TrashBins and trash objects
-        Colliders in the bin and the trash objects allow to check when an object is sorted
-    
-        Check if the sorting is correct by seeing if the metal and plastic trash object’s tag matched the bin’s
+The players start in the SetUpScene, then they can choose to move to BeachMain or WaterMain
+TrashBins and trash objects
+    Colliders in the bin and the trash objects allow to check when an object is sorted
+    Check if the sorting is correct by seeing if the metal and plastic trash object’s tag matched the bin’s
 
-    Color changing plants
-        Reduce alpha value of the overlay in the UpdateTransparency() method, called when the collider in the bin is triggered
+Color changing plants
+    Reduce alpha value of the overlay in the UpdateTransparency() method, called when the collider in the bin is triggered
+    Organized in PlantObjectList in the GameManager script
     
-        Organized in PlantObjectList in the GameManager script
-    
-Scripts
-    
+Scripts    
     GameManager Script
-    
     Runs through both scenes and connects the actions of both players
-    
     Network variables
-        Communicate the value of the health of both environments to update plant transparency and hand menu components
+    Communicate the value of the health of both environments to update plant transparency and hand menu components
 
